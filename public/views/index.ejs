@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chat Room</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<!-- this makes the handshake between the server and client -->
+	<script>
+		var socket = io();
+		$(document).ready(function(){
+			socket.on("updateAll", function(color){
+				$('#wapper').attr('style', 'background-color:' + color.colorGeneral);
+			});
+			$('#green').click(function() {
+				socket.emit('changeGreen');
+			});
+			$('#blue').click(function(){
+				socket.emit('changeBlue');
+			});
+			$('#yellow').click(function(){
+				socket.emit('changeYellow');
+			});
+		});
+	</script>
+</head>
+<body id="wapper">
+	<h1>Welcome to the Real colours</h1>
+	<button type="submit" id="green">Green</button>
+	<button type="submit" id="blue">Blue</button>
+	<button type="submit" id="yellow">Yellow</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
